@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+canvas {
+    display: block;
+    touch-action: none; /* Prevent default touch behaviors */
+}

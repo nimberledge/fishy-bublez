@@ -67,7 +67,7 @@ class Bubble {
 
     draw() {
         ctx.save();
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
         ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
@@ -78,12 +78,12 @@ class Bubble {
             this.x + offsetX, this.y + offsetY, 0,
             this.x, this.y, this.radius
         );
-        gradient.addColorStop(0, `hsl(${this.hue}, 80%, 90%)`); // bright center with hue
-        gradient.addColorStop(0.7, `hsl(${this.hue}, 70%, 70%)`); // mid tone
-        gradient.addColorStop(1, `hsl(${this.hue}, 50%, 50%)`); // darker edge
+        gradient.addColorStop(0, `hsla(${this.hue}, 80%, 90%, 0.6)`); // bright center with hue, more transparent
+        gradient.addColorStop(0.7, `hsla(${this.hue}, 70%, 70%, 0.4)`); // mid tone, transparent
+        gradient.addColorStop(1, `hsla(${this.hue}, 50%, 50%, 0.1)`); // darker edge, very transparent
         ctx.fillStyle = gradient;
         ctx.fill();
-        ctx.strokeStyle = `hsl(${this.hue}, 60%, 40%)`; // darker stroke
+        ctx.strokeStyle = `hsla(${this.hue}, 60%, 40%, 0.2)`; // darker stroke, more transparent
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.restore();

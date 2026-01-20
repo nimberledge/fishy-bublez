@@ -1,3 +1,41 @@
+// Check if today is Fish's birthday (January 20th)
+function checkBirthday() {
+    const today = new Date();
+    if (today.getMonth() === 0 && today.getDate() === 21) { // 0 = January, 20 = 20th
+        const birthdayMessage = document.createElement('div');
+        birthdayMessage.textContent = 'Happy birthday Cutie ❤️';
+        birthdayMessage.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #9370db;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            animation: pulse 1s ease-in-out infinite;
+            font-family: Arial, sans-serif;
+        `;
+        document.body.appendChild(birthdayMessage);
+        
+        // Add pulse animation
+        if (!document.querySelector('style[data-birthday]')) {
+            const style = document.createElement('style');
+            style.setAttribute('data-birthday', 'true');
+            style.textContent = `
+                @keyframes pulse {
+                    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+                    50% { transform: translate(-50%, -50%) scale(1.1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+}
+
+checkBirthday();
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
